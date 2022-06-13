@@ -1,3 +1,7 @@
+ const mongoose = require("./connection")
+ const Card = require('./cards')
+
+
 const options = {
 	method: 'GET',
 	headers: {
