@@ -3,19 +3,36 @@
 /////////////////////////////////////////////
 const express = require('express')
 const methodOverride = require('method-override')
+require('dotenv').config()
 
 
 
 /////////////////////////////////////////////////
 // Create our Express Application Object Bind Liquid Templating Engine
 /////////////////////////////////////////////////
-const app = require("liquid-express-views")(express(), {root: [path.resolve(__dirname, 'views/')]})
+const app = require("liquid-express-views")(express())
 
+
+/////////////////////////////////////////////////////
+// Middleware
+/////////////////////////////////////////////////////
+// app.use(morgan("tiny")); //logging
+app.use(methodOverride("_method")); // override for put and delete requests from forms
+app.use(express.urlencoded({ extended: true })); // parse urlencoded request bodies
+app.use(express.static("public")); // serve files from public statically
+// app.use(
+//   session({
+//     secret: process.env.SECRET,
+//     store: MongoStore.create({ mongoUrl: process.env.DATABASE_URL }),
+//     saveUninitialized: true,
+//     resave: false,
+//   })
+// );
 
 /////////////////////////////////////////////
 // Routes
 /////////////////////////////////////////////
-const userRouter = require('.routes/users')
+const userRouter = require('./routes/users')
 const cardRouter = require('./routes/cards')
 const indexRouter = require('./routes/index')
 
@@ -31,21 +48,6 @@ app.use('/index', indexRouter)
 
 
 
-
-
-
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'ac0eb5e49amshb93c4156f9579bep1f0f93jsna1d1162d60af',
-		'X-RapidAPI-Host': 'omgvamp-hearthstone-v1.p.rapidapi.com'
-	}
-};
-
-fetch('https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/sets/Classic', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
 
 
 

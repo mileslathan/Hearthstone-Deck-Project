@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 router.get('/', (req, res) => {
-    res.render('../views/index.liquid')
+    res.send('I hope this is working three?...')
 })
 
 module.exports = router
