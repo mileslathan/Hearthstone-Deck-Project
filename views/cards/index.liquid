@@ -14,6 +14,9 @@
             <input type="radio" id="search-card-class" name="search" value="playerClass"><label for="search-card-class">By Class</label>
             <input type="radio" id="search-card-cost" name="search" value="cost"><label for="search-card-cost">By Cost</label>
         </form></div>
+        {% if username != "" and username != null %}
+        <div>My Collections</div>
+        {% endif %}
         {% for card in showCards limit:15 %}
         <div id="card-container">
             <a href="/index/{{ card._id }}">{{ card.name }}</a>

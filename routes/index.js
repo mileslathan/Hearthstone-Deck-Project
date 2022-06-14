@@ -2,12 +2,15 @@ const express = require('express')
 const mongoose = require('../models/connection')
 const router = express.Router()
 const Card = require('../models/cards')
+const User = require('../models/users')
 
 router.get('/', (req, res) => {
     console.log('this is the req query', req.query)
+    const username = req.session.username
+    // console.log(username)
     Card.find({})
     .then((showCards) => {
-        res.render('cards/index', { showCards })
+        res.render('cards/index', { showCards, username })
     })
     .catch((error) => {
         console.log(error)
