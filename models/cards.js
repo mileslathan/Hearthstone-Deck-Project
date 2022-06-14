@@ -15,6 +15,7 @@ const cardsSchema = new Schema ({
     playerClass: String,
     spellSchool: String,
     img: String,
+    username: String,
     comments: [ commentsSchema ]
 })
 

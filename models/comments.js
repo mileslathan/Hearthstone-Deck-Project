@@ -5,8 +5,7 @@ const { Schema } = mongoose
 // Make cards Schema
 
 const commentsSchema = new Schema ({
-    userId: String,
-    userName: String,
+    username: String,
     date: Date,
     comments: String
 })
