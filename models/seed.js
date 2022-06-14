@@ -1,12 +1,14 @@
  const mongoose = require("./connection")
  const Card = require('./cards')
 
+ const MY_API_KEY = process.env.API_KEY
+ const MY_API_HOST = process.env.API_HOST
 
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': 'ac0eb5e49amshb93c4156f9579bep1f0f93jsna1d1162d60af',
-		'X-RapidAPI-Host': 'omgvamp-hearthstone-v1.p.rapidapi.com'
+		'X-RapidAPI-Key': MY_API_KEY,
+		'X-RapidAPI-Host': MY_API_HOST
 	}
 };
 
