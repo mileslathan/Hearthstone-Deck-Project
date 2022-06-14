@@ -1,5 +1,5 @@
 const { default: mongoose } = require("mongoose");
-
+const commentsSchema = require('./comments')
 const { Schema, model } = mongoose
 
 // Make cards Schema
@@ -14,8 +14,8 @@ const cardsSchema = new Schema ({
     text: String,
     playerClass: String,
     spellSchool: String,
-    img: String
-    comments: [ ]
+    img: String,
+    comments: [ commentsSchema ]
 })
 
 const Card = model('Card', cardsSchema)
