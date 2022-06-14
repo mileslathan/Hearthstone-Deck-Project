@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     console.log('this is the req query', req.query)
     Card.find({})
     .then((showCards) => {
-        res.render('index', { showCards })
+        res.render('cards/index', { showCards })
     })
     .catch((error) => {
         console.log(error)
@@ -21,7 +21,7 @@ router.get('/search/:text/:search', (req, res) => {
         Card.find({playerClass: text})
         .then((showCards) => {
             console.log(showCards)
-            res.render('index', { showCards })
+            res.render('cards/index', { showCards })
         })
         .catch((error) => {
             console.log(error)
@@ -30,7 +30,7 @@ router.get('/search/:text/:search', (req, res) => {
         Card.find({name: text})
         .then((showCards) => {
             console.log(showCards)
-            res.render('index', { showCards })
+            res.render('cards/index', { showCards })
         })
         .catch((error) => {
             console.log(error)
@@ -39,7 +39,7 @@ router.get('/search/:text/:search', (req, res) => {
         Card.find({cost: text})
         .then((showCards) => {
             console.log(showCards)
-            res.render('index', { showCards })
+            res.render('cards/index', { showCards })
         })
         .catch((error) => {
             console.log(error)
@@ -52,6 +52,20 @@ router.post('/query', (req, res) => {
     res.redirect(`search/${req.body.text}/${req.body.search}`)
 })
 
+//show route
+router.get('/:id', (req, res) => {
+    const id = req.params.id
+
+    //Finding the particular id of a card from db.
+    Card.findById(id)
+    .then((showCard) => {
+        res.render('cards/show.liquid', { showCard })
+    })
+    .catch((error) => {
+        console.log(error);
+        res.json({ error });
+    })
+})
 
 
 // router.post('/', (req, res) => {

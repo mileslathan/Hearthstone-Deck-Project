@@ -1,15 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hearthstone Classic!</title>
-</head>
-<body>
+{% layout "layout.liquid" %} {% block content %}
     <div class="container">
         <div>Insert Banner Here</div>
         <nav>Navigation Bar Here</nav>
+        <div>
+            Welcome! Not a User?
+            <a href="/users/signup"><button>Signup</button></a> | 
+            <a href="/users/login"><button>Login</button></a>
+            <!-- <a href="/users/logout"><button>Logout</button></a> -->
+          </div>
+        <div><form action="/index/query" method="POST">
+            Search Cards: <input type="text" name="text"><input type="submit" /><br>
+            <input type="radio" id="search-card-name" name="search" value="name"><label for="search-card-name">By Name</label>
+            <input type="radio" id="search-card-class" name="search" value="playerClass"><label for="search-card-class">By Class</label>
+            <input type="radio" id="search-card-cost" name="search" value="cost"><label for="search-card-cost">By Cost</label>
+        </form></div>
+        {% for card in showCards limit:15 %}
+        <div id="card-container">
+            <a href="/index/{{ card._id }}">{{ card.name }}</a>
+            <img src="{{ card.img }}">           
+        </div>
+        {% endfor %}
     </div>
-</body>
-</html>
+{% endblock %}

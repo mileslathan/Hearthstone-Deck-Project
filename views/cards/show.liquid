@@ -1,0 +1,22 @@
+{% layout "layout.liquid" %} {% block content %}
+<div class="container">
+<a href="/index/">Go Back</a><br>
+{{ showCard.name }}<br>
+<img src="{{ showCard.img }}"><br>
+Player Class: {{ showCard.playerClass }}<br>
+Card Type: {{ showCard.type }}<br>
+Card Text: {{ showCard.text }}<br>
+</div>
+<div class="comments">
+    {{ showCard.comments }}
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
