@@ -11,6 +11,17 @@ const options = {
 };
 
 fetch('https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/sets/Classic', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
+	.then((apiresponse) => {
+		console.log(apiresponse)
+		return apiresponse.json()
+	})
+	.then((jsonData) => {
+		const cardData = jsonData
+		Card.insertMany(cardData)
+	})
+	.catch(function(error){
+		console.log(error)      // Failure
+	});
+	
+	
+	// .then(response => console.log(response))

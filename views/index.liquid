@@ -10,13 +10,17 @@
     <div class="container">
         <div>Insert Banner Here</div>
         <nav>Navigation Bar Here</nav>
-        <div><form action="query" method="POST">
-            Search Cards: <input type="text"><br>
-            <input type="radio"> By Name
-            <input type="radio"> By Class
-            <input type="radio"> By Cost
+        <div><form action="/index/query" method="POST">
+            Search Cards: <input type="text" name="text"><input type="submit" /><br>
+            <input type="radio" id="search-card-name" name="search" value="name"><label for="search-card-name">By Name</label>
+            <input type="radio" id="search-card-class" name="search" value="playerClass"><label for="search-card-class">By Class</label>
+            <input type="radio" id="search-card-cost" name="search" value="cost"><label for="search-card-cost">By Cost</label>
         </form></div>
-        <div id="card-container"></div>
+        <div id="card-container">{% for card in showCards limit:15 %}
+            {{ card.name }}
+            {{ card.img }}
+            {% endfor %}
+        </div>
     </div>
 </body>
 </html>
