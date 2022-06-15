@@ -55,6 +55,17 @@ router.post("/login", async (req, res) => {
         });
   });
 
+  router.post('/myCollections', (req, res) => {
+    user = req.session.username
+    if (req.body.newCollection !== null) {
+      currentUser = User.find({username: user})
+      console.log(currentUser)
+      // currentUser.cardCollection.push(req.body)
+      // console.log(currentUser.cardCollection)
+        res.redirect('users/myCollections')
+    }
+  })
+
   router.get("/logout", (req, res) => {
     // destroy session and redirect to main page
     req.session.destroy((err) => {

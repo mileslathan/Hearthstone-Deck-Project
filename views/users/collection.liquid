@@ -19,5 +19,10 @@
         {% endif %}
         <div>List of Collections Image</div><br>
         <div>List of Collections Name</div>
+        <div><form action="/users/myCollections" method="POST">
+            <input type="text" name="name" placeholder="Name of New Collection">
+            <input type="submit" value="Create A Collection">        
+            </form>
+        </div>
     </div>
 {% endblock %}
