@@ -55,22 +55,22 @@ router.post("/login", async (req, res) => {
         });
   });
 
-  router.post('/myCollections', (req, res) => {
+  router.post('/myCollections', async (req, res) => {
     let userc = req.session.username
      if (req.body.newCollection !== null) {
-    User.find({username: userc})
-    .then((users) =>{
-      users.cardCollection.push(req.body)
+    let testUser = await User.find({username: userc})
+    testUser[0].cardCollection.push(req.body)
+     console.log(testUser[0])
+    // })
+    // // console.log(userCollection)
+    // // User.cardCollection.create(req.body)
+    // //   .then((user) => {
+    // //   })
+    // //   // currentUser.cardCollection.push(req.body)
+    // //   // console.log(currentUser.cardCollection)
+       res.redirect('/myCollections')
+      }
     })
-    // console.log(userCollection)
-    // User.cardCollection.create(req.body)
-    //   .then((user) => {
-    //   })
-    //   // currentUser.cardCollection.push(req.body)
-    //   // console.log(currentUser.cardCollection)
-        res.redirect('users/myCollections')
-    }
-  })
 
   router.get("/logout", (req, res) => {
     // destroy session and redirect to main page

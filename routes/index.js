@@ -7,10 +7,11 @@ const User = require('../models/users')
 router.get('/', (req, res) => {
     console.log('this is the req query', req.query)
     const username = req.session.username
-    // console.log(username)
+    const userId = req.session.userId
+    console.log(userId)
     Card.find({})
     .then((showCards) => {
-        res.render('cards/index', { showCards, username })
+        res.render('cards/index', { showCards, username, userId })
     })
     .catch((error) => {
         console.log(error)
@@ -81,9 +82,8 @@ router.get('/:id', (req, res) => {
     })
 })
 
+router.delete('/:id', (req, res) => {
 
-// router.post('/', (req, res) => {
-
-// })
+})
 
 module.exports = router
