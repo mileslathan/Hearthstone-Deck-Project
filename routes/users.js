@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const bcrypt = require("bcryptjs");
+const mongoose = require('../models/connection')
 const User = require('../models/users')
 
 // This is the signup route for users.
@@ -62,6 +63,7 @@ router.post("/login", async (req, res) => {
   });
 
   router.get('/myCollections', (req, res) => {
-    res.render('users/collection.liquid')
+    const username = req.session.username
+    res.render('users/collection.liquid', { username })
   })
 module.exports = router
