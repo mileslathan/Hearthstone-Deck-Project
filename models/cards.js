@@ -21,4 +21,5 @@ const cardsSchema = new Schema ({
 
 const Card = model('Card', cardsSchema)
 
+module.exports = cardsSchema
 module.exports = Card

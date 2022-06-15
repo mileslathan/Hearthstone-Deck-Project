@@ -37,6 +37,7 @@ router.post("/login", async (req, res) => {
               //store some properties in the session object
               req.session.username = username
               req.session.loggedIn = true
+              
               // redirect to fruits page if successful
               res.redirect("/index");
             } else {
@@ -58,9 +59,12 @@ router.post("/login", async (req, res) => {
   router.post('/myCollections', async (req, res) => {
     let userc = req.session.username
      if (req.body.newCollection !== null) {
-    let testUser = await User.find({username: userc})
-    testUser[0].cardCollection.push(req.body)
-     console.log(testUser[0])
+    let testUser = await User.findOne({username: userc})
+    testUser.cardCollection.push(req.body)
+    testUser.save((err) => {
+      res.redirect('/users/myCollections', { testUser })
+    })
+    //  console.log(testUser[0])
     // })
     // // console.log(userCollection)
     // // User.cardCollection.create(req.body)
@@ -68,7 +72,6 @@ router.post("/login", async (req, res) => {
     // //   })
     // //   // currentUser.cardCollection.push(req.body)
     // //   // console.log(currentUser.cardCollection)
-       res.redirect('/myCollections')
       }
     })
 
@@ -79,8 +82,14 @@ router.post("/login", async (req, res) => {
     });
   });
 
-  router.get('/myCollections', (req, res) => {
+  router.get('/mycollections/:id', (req, res) => {
+    res.render('users/collection.liquid')
+  })
+
+  router.get('/myCollections', async (req, res) => {
     const username = req.session.username
-    res.render('users/collection.liquid', { username })
+    const testUser = await User.findOne({username: username})
+    const userCollect = testUser.cardCollection
+    res.render('users/collections.liquid', { username, testUser, userCollect })
   })
 module.exports = router

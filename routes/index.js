@@ -8,10 +8,12 @@ router.get('/', (req, res) => {
     console.log('this is the req query', req.query)
     const username = req.session.username
     const userId = req.session.userId
-    console.log(userId)
+    const loggedIn = req.session.loggedIn
+    console.log(loggedIn)
+    // console.log(userId)
     Card.find({})
     .then((showCards) => {
-        res.render('cards/index', { showCards, username, userId })
+        res.render('cards/index', { showCards, username, loggedIn })
     })
     .catch((error) => {
         console.log(error)

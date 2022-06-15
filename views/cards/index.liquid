@@ -2,7 +2,7 @@
     <div class="container">
         <div>Insert Banner Here</div>
         <nav>Navigation Bar Here</nav>
-        {% if username != "" and username != null %}
+        {% if loggedIn %}
         <div class="loggedin">
         Welcome, <b>{{ username }}</b> ! <a href="/users/logout"><button>Logout</button></a>
         </div>
