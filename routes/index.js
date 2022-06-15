@@ -19,12 +19,12 @@ router.get('/', (req, res) => {
 
 router.get('/search/:text/:search', (req, res) => {
     let text = req.params.text
-    let searchType
+    const username = req.session.username
     if (req.params.search === 'playerClass') {
         Card.find({playerClass: text})
         .then((showCards) => {
             console.log(showCards)
-            res.render('cards/index', { showCards })
+            res.render('cards/index', { showCards, username })
         })
         .catch((error) => {
             console.log(error)
@@ -33,7 +33,7 @@ router.get('/search/:text/:search', (req, res) => {
         Card.find({name: text})
         .then((showCards) => {
             console.log(showCards)
-            res.render('cards/index', { showCards })
+            res.render('cards/index', { showCards, username })
         })
         .catch((error) => {
             console.log(error)
@@ -42,7 +42,7 @@ router.get('/search/:text/:search', (req, res) => {
         Card.find({cost: text})
         .then((showCards) => {
             console.log(showCards)
-            res.render('cards/index', { showCards })
+            res.render('cards/index', { showCards, username })
         })
         .catch((error) => {
             console.log(error)
@@ -58,11 +58,11 @@ router.post('/query', (req, res) => {
 //show route
 router.get('/:id', (req, res) => {
     const id = req.params.id
-
+    const username = req.session.username
     //Finding the particular id of a card from db.
     Card.findById(id)
     .then((showCard) => {
-        res.render('cards/show.liquid', { showCard })
+        res.render('cards/show.liquid', { showCard, username })
     })
     .catch((error) => {
         console.log(error);
