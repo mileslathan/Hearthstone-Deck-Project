@@ -54,8 +54,19 @@ router.post('/query', (req, res) => {
     console.log(req.body)
     res.redirect(`search/${req.body.text}/${req.body.search}`)
 })
-
-//show route
+// edit route
+router.get('/:id/edit', (req, res) => {
+    const id = req.params.id
+    console.log(id)
+    Card.findById(id)
+    .then((card) => {
+        res.render('cards/edit.liquid', { card })
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+})
+// show route
 router.get('/:id', (req, res) => {
     const id = req.params.id
     const username = req.session.username

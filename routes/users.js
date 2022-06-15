@@ -56,12 +56,18 @@ router.post("/login", async (req, res) => {
   });
 
   router.post('/myCollections', (req, res) => {
-    user = req.session.username
-    if (req.body.newCollection !== null) {
-      currentUser = User.find({username: user})
-      console.log(currentUser)
-      // currentUser.cardCollection.push(req.body)
-      // console.log(currentUser.cardCollection)
+    let userc = req.session.username
+     if (req.body.newCollection !== null) {
+    User.find({username: userc})
+    .then((users) =>{
+      users.cardCollection.push(req.body)
+    })
+    // console.log(userCollection)
+    // User.cardCollection.create(req.body)
+    //   .then((user) => {
+    //   })
+    //   // currentUser.cardCollection.push(req.body)
+    //   // console.log(currentUser.cardCollection)
         res.redirect('users/myCollections')
     }
   })
