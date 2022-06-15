@@ -17,7 +17,7 @@
         {% if username != "" and username != null %}
         {% endif %}
         <div></div>
-        <div>List of Collections Image</div><br>
+        <div><h1>This is the Collection</h1></div><br>
         <div>{% for cards in userCollect %}
             <a href="/users/myCollections/{{ cards.id }}">{{ cards.name }}</a><br>
             {% endfor %}
