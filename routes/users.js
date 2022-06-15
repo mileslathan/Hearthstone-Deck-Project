@@ -54,4 +54,14 @@ router.post("/login", async (req, res) => {
         });
   });
 
+  router.get("/logout", (req, res) => {
+    // destroy session and redirect to main page
+    req.session.destroy((err) => {
+      res.redirect("/index");
+    });
+  });
+
+  router.get('/myCollections', (req, res) => {
+    res.render('users/collection.liquid')
+  })
 module.exports = router

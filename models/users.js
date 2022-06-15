@@ -2,7 +2,7 @@
 // Import Dependencies
 //////////////////////////////////////////////
 const mongoose = require('./connection')
-
+const collectionSchema = require('./collections')
 ////////////////////////////////////////////////
 // Define Model
 ////////////////////////////////////////////////
@@ -13,7 +13,9 @@ const { Schema, model } = mongoose
 // Make User Schema
 const userSchema = new Schema({
     username: { type: String, required: true, unique: true },
-    password: { type: String, required: true }
+    password: { type: String, required: true },
+    isAdmin: { type: Boolean, default: false },
+    // collection: [ collectionSchema ]
 })
 
 // Make User Model

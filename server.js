@@ -38,6 +38,7 @@ app.use(
 const userRouter = require('./routes/users')
 const cardRouter = require('./routes/cards')
 const indexRouter = require('./routes/index')
+// const collectionRouter = require('./routes/myCollections')
 
 
 /////////////////////////////////////////////
@@ -47,6 +48,7 @@ const indexRouter = require('./routes/index')
 app.use('/users', userRouter)
 app.use('/cards', cardRouter)
 app.use('/index', indexRouter)
+// app.use('/myCollections', collectionRouter)
 
 
 

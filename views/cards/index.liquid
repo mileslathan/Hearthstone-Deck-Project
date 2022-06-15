@@ -2,12 +2,18 @@
     <div class="container">
         <div>Insert Banner Here</div>
         <nav>Navigation Bar Here</nav>
+        {% if username != "" and username != null %}
+        <div class="loggedin">
+        Welcome, <b>{{ username }}</b> ! <a href="/users/logout"><button>Logout</button></a>
+        </div>
+        {% else %}
         <div>
             Welcome! Not a User?
             <a href="/users/signup"><button>Signup</button></a> | 
             <a href="/users/login"><button>Login</button></a>
-            <!-- <a href="/users/logout"><button>Logout</button></a> -->
+            
           </div>
+        {% endif %}
         <div><form action="/index/query" method="POST">
             Search Cards: <input type="text" name="text"><input type="submit" /><br>
             <input type="radio" id="search-card-name" name="search" value="name"><label for="search-card-name">By Name</label>
@@ -15,7 +21,7 @@
             <input type="radio" id="search-card-cost" name="search" value="cost"><label for="search-card-cost">By Cost</label>
         </form></div>
         {% if username != "" and username != null %}
-        <div>My Collections</div>
+        <div><a href="/users/myCollections/">My Collections</a></div>
         {% endif %}
         {% for card in showCards limit:15 %}
         <div id="card-container">

@@ -1,0 +1,23 @@
+{% layout "layout.liquid" %} {% block content %}
+    <div class="container">
+        <div>Insert Banner Here</div>
+        <nav>Navigation Bar Here</nav>
+        {% if username != "" and username != null %}
+        <div class="loggedin">
+        Welcome, <b>{{ username }}</b> ! <a href="/users/logout"><button>Logout</button></a>
+        </div>
+        {% else %}
+        <div>
+            Welcome! Not a User?
+            <a href="/users/signup"><button>Signup</button></a> | 
+            <a href="/users/login"><button>Login</button></a>
+            </div>
+        {% endif %}
+        <div></div>
+        {% if username != "" and username != null %}
+        <div>My Collections</div>
+        {% endif %}
+        <div>List of Collections Image</div><br>
+        <div>List of Collections Name</div>
+    </div>
+{% endblock %}
