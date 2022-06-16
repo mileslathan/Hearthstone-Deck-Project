@@ -7,6 +7,7 @@ Player Class: {{ showCard.playerClass }}<br>
 Card Type: {{ showCard.type }}<br>
 Card Text: {{ showCard.text }}<br>
 </div>
+{% if loggedIn %}
 <div>          
     <form action="/users/{{ showCard._id }}/add" method="POST">
     <input type="submit" value="Add To Collection:"/>
@@ -19,6 +20,7 @@ Card Text: {{ showCard.text }}<br>
 </form>
 
 </div>
+{% endif %}
 <div>
     <a href="/index/{{ showCard._id }}/edit"><button>Edit</button></a>
     <a href="/index/{{ showCard._id }}/delete"><button>Delete</button></a>
