@@ -2,7 +2,7 @@
 // Import Dependencies
 //////////////////////////////////////////////
 const mongoose = require('./connection')
-const collectionSchema = require('./collections')
+const CardCollection = require('./collections')
 ////////////////////////////////////////////////
 // Define Model
 ////////////////////////////////////////////////
@@ -15,7 +15,10 @@ const userSchema = new Schema({
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     isAdmin: { type: Boolean, default: false },
-    cardCollection: [ collectionSchema ]
+    cardCollection: [  {
+        type: Schema.Types.ObjectId,
+        ref: 'CardCollection'
+    } ]
 })
 
 // Make User Model

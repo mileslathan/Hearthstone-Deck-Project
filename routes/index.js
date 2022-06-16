@@ -70,13 +70,18 @@ router.get('/:id/edit', (req, res) => {
     })
 })
 // show route
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
     const id = req.params.id
     const username = req.session.username
+    const userCollections = await User.findOne({username: username}).populate("cardCollection")
+    const usersCollectionsSpecified = userCollections.cardCollection
+    const userCollectionName = usersCollectionsSpecified
+    console.log(userCollectionName)
+    // console.log(userCollections)
     //Finding the particular id of a card from db.
     Card.findById(id)
     .then((showCard) => {
-        res.render('cards/show.liquid', { showCard, username })
+        res.render('cards/show.liquid', { showCard, username, usersCollectionsSpecified })
     })
     .catch((error) => {
         console.log(error);

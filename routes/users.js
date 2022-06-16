@@ -3,7 +3,8 @@ const router = express.Router()
 const bcrypt = require("bcryptjs");
 const mongoose = require('../models/connection')
 const User = require('../models/users')
-
+const Card = require('../models/cards')
+const CardCollection = require('../models/collections')
 // This is the signup route for users.
 router.get('/signup', (req, res) => {
     res.render("users/signup.liquid");
@@ -19,6 +20,20 @@ router.post("/signup", async (req, res) => {
         res.redirect("/users/login")
     })
   });
+
+// Using this to add a card to the users Card Collection
+router.post('/:cardid/add', (req, res) => {
+  username = req.session.username
+    CardCollection.findById(req.body.collection)
+  .then(foundCollection => {
+    foundCollection.cards.push(req.params.cardid)
+    foundCollection.save()
+    res.redirect('/users/myCollections')
+  })
+  // })
+
+    })
+
 
 router.get('/login', (req, res) => {
     res.render('users/login.liquid')
@@ -59,11 +74,18 @@ router.post("/login", async (req, res) => {
   router.post('/myCollections', async (req, res) => {
     let userc = req.session.username
      if (req.body.newCollection !== null) {
-    let testUser = await User.findOne({username: userc})
-    testUser.cardCollection.push(req.body)
-    testUser.save((err) => {
-      res.redirect('/users/myCollections', { testUser })
-    })
+       req.body.username = userc
+       CardCollection.create(req.body)
+       .then(newCollection => {
+         User.findOne({username: userc})
+         .then((testUser) => {
+           testUser.cardCollection.push(newCollection._id)
+           // new card collection id
+           testUser.save()
+             res.redirect('/users/myCollections')
+         })
+
+       })
     //  console.log(testUser[0])
     // })
     // // console.log(userCollection)
@@ -83,12 +105,16 @@ router.post("/login", async (req, res) => {
   });
 
   router.get('/mycollections/:id', (req, res) => {
-    res.render('users/collection.liquid')
+    // res.render('users/collection.liquid')
+    CardCollection.findById(req.params.id).populate('cards')
+    .then(collection => {
+      console.log(collection)
+    })
   })
 
   router.get('/myCollections', async (req, res) => {
     const username = req.session.username
-    const testUser = await User.findOne({username: username})
+    const testUser = await User.findOne({username: username}).populate('cardCollection')
     const userCollect = testUser.cardCollection
     res.render('users/collections.liquid', { username, testUser, userCollect })
   })
