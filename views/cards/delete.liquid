@@ -1,0 +1,14 @@
+{% layout "layout.liquid" %} {% block content %}
+<div class="container">
+<a href="/index/{{ showCard._id }}">Go Back</a><br>
+{{ showCard.name }}<br>
+<img src="{{ showCard.img }}"><br>
+Player Class: {{ showCard.playerClass }}<br>
+Card Type: {{ showCard.type }}<br>
+Card Text: {{ showCard.text }}<br>
+</div><br>
+<h2>Are you sure you want to DELETE {{ showCard.name }} ?</h2>
+<form action="/:id/delete" method="DELETE">
+    <input type="submit" value="YES">
+</form>
+{% endblock %}

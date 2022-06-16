@@ -7,11 +7,10 @@ Player Class: {{ showCard.playerClass }}<br>
 Card Type: {{ showCard.type }}<br>
 Card Text: {{ showCard.text }}<br>
 </div>
-{% if loggedIn %}
+ {% if loggedIn %}
 <div>          
     <form action="/users/{{ showCard._id }}/add" method="POST">
     <input type="submit" value="Add To Collection:"/>
-    
     <select id="deck" name="collection">
     {% for collects in usersCollectionsSpecified %}
     <option value="{{ collects._id }}">{{ collects.name }}</option>

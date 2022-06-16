@@ -84,9 +84,8 @@ router.get('/:id/edit', (req, res) => {
 // show route
 router.get('/:id', async (req, res) => {
     const loggedIn = req.session.loggedIn
-    console.log(loggedIn)
      const id = req.params.id
-    if (loggedIn) {
+    if (loggedIn === true) {
         const username = req.session.username
         const userCollections = await User.findOne({username: username}).populate("cardCollection")
         const usersCollectionsSpecified = userCollections.cardCollection
@@ -95,7 +94,7 @@ router.get('/:id', async (req, res) => {
      //  const userCollectionName = usersCollectionsSpecified
      Card.findById(id)
      .then((showCard) => {
-         res.render('cards/show.liquid', { showCard, usersCollectionsSpecified })
+         res.render('cards/show.liquid', { showCard, usersCollectionsSpecified, loggedIn })
      })
     } else if (loggedIn === undefined) {
     //Finding the particular id of a card from db.
@@ -108,6 +107,18 @@ router.get('/:id', async (req, res) => {
          res.json({ error });
      })
     }
+})
+
+router.get('/:id/delete', (req, res) => {
+    const id = req.params.id
+    Card.findById(id)
+    .then((showCard) => {
+        res.render('cards/delete.liquid', { showCard })
+    })
+    .catch((error) => {
+        console.log(error);
+        res.json({ error });
+    })
 })
 
 router.delete('/:id/delete', (req, res) => {
