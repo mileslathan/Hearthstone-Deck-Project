@@ -12,7 +12,7 @@ const options = {
 	}
 };
 
-fetch('https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/sets/Classic', options)
+fetch('https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/', options)
 	.then((apiresponse) => {
 		console.log(apiresponse)
 		return apiresponse.json()

@@ -104,12 +104,16 @@ router.post("/login", async (req, res) => {
     });
   });
 
-  router.get('/mycollections/:id', (req, res) => {
+  router.get('/mycollections/:id', async (req, res) => {
     // res.render('users/collection.liquid')
-    CardCollection.findById(req.params.id).populate('cards')
-    .then(collection => {
-      console.log(collection)
-    })
+    const collectsCards = await CardCollection.findById(req.params.id).populate('cards')
+    const collectCards = collectsCards.cards
+    console.log(collectsCards)
+    res.render('users/collection.liquid', { collectCards, collectsCards })
+    // // .then(collection => {
+    // //   console.log(collection)
+    // //   res.render('users/collection.liquid', { collection })
+    // })
   })
 
   router.get('/myCollections', async (req, res) => {

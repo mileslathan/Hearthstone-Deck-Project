@@ -17,15 +17,12 @@
         {% if username != "" and username != null %}
         {% endif %}
         <div></div>
-        <div><h1>This is the Collection</h1></div><br>
-        <div>{% for cards in userCollect %}
-            <a href="/users/myCollections/{{ cards.id }}">{{ cards.name }}</a><br>
+        <div><h1>{{ collectsCards.name }}</h1></div><br>
+        <div>
+            {% for cards in collectCards %}
+            {{ cards.name }}
+            <!-- <a href="/users/myCollections/{{ cards.id }}">{{ cards.name }}</a><br> -->
             {% endfor %}
-        </div>
-        <div><form action="/users/myCollections" method="POST">
-            <input type="text" name="name" placeholder="Name of New Collection">
-            <input type="submit" value="Create A Collection">        
-            </form>
         </div>
     </div>
 {% endblock %}
