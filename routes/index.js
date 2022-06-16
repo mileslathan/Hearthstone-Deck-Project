@@ -83,30 +83,37 @@ router.get('/:id/edit', (req, res) => {
 })
 // show route
 router.get('/:id', async (req, res) => {
-    //  const loggedIn = await req.session.loggedIn
-    // console.log(loggedIn)
-    const id = req.params.id
-    //   if (loggedIn) {
-    const username = await req.session.username
-    const userCollections = await User.findOne({username: username}).populate("cardCollection")
-    const usersCollectionsSpecified = userCollections.cardCollection
-    const userCollectionName = usersCollectionsSpecified
-    // console.log(userCollectionName)
-    // console.log(userCollections)
-    //   }
+    const loggedIn = req.session.loggedIn
+    console.log(loggedIn)
+     const id = req.params.id
+    if (loggedIn) {
+        const username = req.session.username
+        const userCollections = await User.findOne({username: username}).populate("cardCollection")
+        const usersCollectionsSpecified = userCollections.cardCollection
+    //     const cardRender = Card.findById(id)
+    // res.render('cards/show.liquid', { cardRender, usersCollectionsSpecified })
+     //  const userCollectionName = usersCollectionsSpecified
+     Card.findById(id)
+     .then((showCard) => {
+         res.render('cards/show.liquid', { showCard, usersCollectionsSpecified })
+     })
+    } else if (loggedIn === undefined) {
     //Finding the particular id of a card from db.
     Card.findById(id)
     .then((showCard) => {
-        res.render('cards/show.liquid', { showCard, usersCollectionsSpecified })
+        res.render('cards/show.liquid', { showCard })
     })
-    .catch((error) => {
-        console.log(error);
-        res.json({ error });
-    })
+     .catch((error) => {
+         console.log(error);
+         res.json({ error });
+     })
+    }
 })
 
 router.delete('/:id/delete', (req, res) => {
-    
+    const id = req.params.id
+    Card.findByIdAndDelete(id)
+    res.redirect('/index.liquid')
 })
 
 module.exports = router
