@@ -3,12 +3,12 @@
     <h1>THIS IS THE EDIT PAGE REDO ALL FIELDS</h1>
   <form action="/users/signup" method="POST">
     <fieldset>
-      <legend>New User</legend>
-      <label>USERNAME: <input type="text" name="username" required /> </label>
+      <legend>Edit {{ card.name }}</legend>
+      <label>Name: <input type="text" name="name" required /> </label>
       <label
-        >PASSWORD: <input type="password" name="password" required />
+        >Image: <input type="text" name="img" required />
       </label>
-      <input type="submit" value="Create Account" />
+      <input type="submit" value="Submit Changes" />
     </fieldset>
   </form>
 </div>

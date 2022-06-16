@@ -57,6 +57,18 @@ router.post('/query', (req, res) => {
     console.log(req.body)
     res.redirect(`search/${req.body.text}/${req.body.search}`)
 })
+
+// edit PUT route. Takes the information from req.body and updates info.
+router.put('/:id/edit', (req, res) => {
+    const id = req.params.id
+    let info = req.body
+    Card.findbyIdAndUpdate(id, { name: info.name, img: info.img })
+    .then((card) => {
+        card.save()
+        res.redirect('cards/show.liquid')
+    })
+})
+
 // edit route
 router.get('/:id/edit', (req, res) => {
     const id = req.params.id
@@ -71,17 +83,21 @@ router.get('/:id/edit', (req, res) => {
 })
 // show route
 router.get('/:id', async (req, res) => {
+    //  const loggedIn = await req.session.loggedIn
+    // console.log(loggedIn)
     const id = req.params.id
-    const username = req.session.username
+    //   if (loggedIn) {
+    const username = await req.session.username
     const userCollections = await User.findOne({username: username}).populate("cardCollection")
     const usersCollectionsSpecified = userCollections.cardCollection
     const userCollectionName = usersCollectionsSpecified
-    console.log(userCollectionName)
+    // console.log(userCollectionName)
     // console.log(userCollections)
+    //   }
     //Finding the particular id of a card from db.
     Card.findById(id)
     .then((showCard) => {
-        res.render('cards/show.liquid', { showCard, username, usersCollectionsSpecified })
+        res.render('cards/show.liquid', { showCard, usersCollectionsSpecified })
     })
     .catch((error) => {
         console.log(error);
@@ -89,8 +105,8 @@ router.get('/:id', async (req, res) => {
     })
 })
 
-router.delete('/:id', (req, res) => {
-
+router.delete('/:id/delete', (req, res) => {
+    
 })
 
 module.exports = router
