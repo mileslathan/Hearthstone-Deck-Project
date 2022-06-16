@@ -62,10 +62,10 @@ router.post('/query', (req, res) => {
 router.put('/:id/edit', (req, res) => {
     const id = req.params.id
     let info = req.body
-    Card.findbyIdAndUpdate(id, { name: info.name, img: info.img })
+    Card.findByIdAndUpdate(id, { name: info.name, img: info.img })
     .then((card) => {
         card.save()
-        res.redirect('cards/show.liquid')
+        res.redirect('/index')
     })
 })
 
@@ -85,16 +85,18 @@ router.get('/:id/edit', (req, res) => {
 router.get('/:id', async (req, res) => {
     const loggedIn = req.session.loggedIn
      const id = req.params.id
+     console.log(req.session)
     if (loggedIn === true) {
         const username = req.session.username
         const userCollections = await User.findOne({username: username}).populate("cardCollection")
         const usersCollectionsSpecified = userCollections.cardCollection
-    //     const cardRender = Card.findById(id)
-    // res.render('cards/show.liquid', { cardRender, usersCollectionsSpecified })
+    //     const cardRender = Card.findById(id)''r, usersCollectionsSpecified })
      //  const userCollectionName = usersCollectionsSpecified
+     // i will query the User model by passing in 'username' to find the exact username. Once you have correct object I can use the isAdmin property and pass it through the .then.
+        const onUser = User.findOne({username: username})
      Card.findById(id)
      .then((showCard) => {
-         res.render('cards/show.liquid', { showCard, usersCollectionsSpecified, loggedIn })
+         res.render('cards/show.liquid', { showCard, usersCollectionsSpecified, loggedIn, onUser })
      })
     } else if (loggedIn === undefined) {
     //Finding the particular id of a card from db.
@@ -108,7 +110,7 @@ router.get('/:id', async (req, res) => {
      })
     }
 })
-
+// *** DELETE PAGE ROUTE ***
 router.get('/:id/delete', (req, res) => {
     const id = req.params.id
     Card.findById(id)
@@ -121,10 +123,14 @@ router.get('/:id/delete', (req, res) => {
     })
 })
 
+// *** DELETE ROUTE ***
 router.delete('/:id/delete', (req, res) => {
     const id = req.params.id
     Card.findByIdAndDelete(id)
-    res.redirect('/index.liquid')
+    .then((card) => {
+        console.log(card)
+        res.redirect('/index')
+    })
 })
 
 module.exports = router
