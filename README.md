@@ -42,7 +42,11 @@ Back in 2014, I remember playing Hearthstone a lot while finishing my college ed
 - Various node modules
 
 ## Exploring The App
+On this site, users are seperated into three catagories: Admin, Registered User and Regular User.
 
+**Admin's** can: Gain all functionality of site like a registered user, but can also create, edit and delete cards from database.
+**Registered Users** can: View all card data and create their own personal 'Collections' of cards.
+**Regular Users** can: Only view card data.
 
 ## Challenges
   
