@@ -18,6 +18,7 @@ git clone https://github.com/mileslathan/Hearthstone-Deck-Project.git
 4. Go to the Hearthstone-Deck-Project directory and open this project in
 
 ## APP Description
+![DESC IMG](https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/t1/T186VQOQFRJN1622064439114.png)
 This App, is designed to serve as a repository of information based on Blizzard Entertainment's card game titled Hearthstone. Using the app, users can search for a multitude of different cards data. Users that have registered can save popular cards to their 'collections' and use these collections to theorycraft their own personal decks.
 
 
@@ -29,3 +30,5 @@ Back in 2014, I remember playing Hearthstone a lot while finishing my college ed
 
 ## MY ERD
 ![ERD IMG](/img/HSProjectERD.png)
+
+## Technologies Used
