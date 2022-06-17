@@ -12,7 +12,9 @@ For Local Use
 git clone https://github.com/mileslathan/Hearthstone-Deck-Project.git
 ```
 4. Go to the Hearthstone-Deck-Project directory and open this project in
-5. 
+
+## APP Description
+This App, is designed to serve as a repository of information based on Blizzard Entertainment's card game titled Hearthstone.
 
 Miles Lathan
 ## WIREFRAMES
