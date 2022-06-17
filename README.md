@@ -34,8 +34,13 @@ Back in 2014, I remember playing Hearthstone a lot while finishing my college ed
 
 ## Technologies Used
 
-## TOP 3
+## Challenges
   
-  - Testing
-  - test2
-  - testing3
+  - **Selecting the Proper Model**
+    For this project, I
+  - ** Security **
+    It quite surprised me given the technologies 
+  - ** 
+
+## Things I Learned
+- 
