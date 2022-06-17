@@ -41,13 +41,19 @@ Back in 2014, I remember playing Hearthstone a lot while finishing my college ed
 - Mongoose
 - Various node modules
 
+## Exploring The App
+
+
 ## Challenges
   
-  - **Selecting the Proper Model**
-    For this project, I
-  - ** Security **
-    It quite surprised me given the technologies 
-  - ** 
+### Selecting the Proper Model
+For this project, I was using embedding
+
+## Future Improvements
+
+-**Improving UI/UX Design.** This incorporates better deisgn for users adding cards, display of data and more user interactivity.
+-**Security Changes.** Invest in better technologies for both Authentication and Authorization.
+-
 
 ## Things I Learned
 - 
