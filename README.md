@@ -33,6 +33,13 @@ Back in 2014, I remember playing Hearthstone a lot while finishing my college ed
 ![ERD IMG](/img/HSProjectERD.png)
 
 ## Technologies Used
+- HTML
+- CSS
+- Javascript
+- Liquid
+- MongoDB
+- Mongoose
+- Various node modules
 
 ## Challenges
   
