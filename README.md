@@ -1,7 +1,11 @@
 # Hearthstone-Deck-Project
-A fullstack App that is designed for the user to view the Classic set of Cards, Explore its inventory by multiple properties and Create a list of faviorite cards and add comments!
+A fullstack App that is designed for the user to view the Classic set of Cards, Explore its inventory by multiple properties and Create a list of faviorite cards!
 
 SEI -5/9- ** Project Two **
+
+Miles Lathan
+
+![Banner IMG](/img/banner1.png)
 
 ## INSTALLATION
 ``text
@@ -20,7 +24,6 @@ This App, is designed to serve as a repository of information based on Blizzard 
 ## Inspiration
 Back in 2014, I remember playing Hearthstone a lot while finishing my college education. The release of the game is very nostalgic and doing this project reminded me how fun it was!
 
-Miles Lathan
 ## WIREFRAMES
 ![WIREFRAME IMG](/img/HSProjectWireFrame1.png)
 
