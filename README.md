@@ -7,15 +7,11 @@ Miles Lathan
 
 ![Banner IMG](/img/banner1.png)
 
-## INSTALLATION
-``text
-For Local Use
-1. Go to [This Repo](http://github.com/mileslathan/Hearthstone-Deck-Project.git)
-2. Fork and clone the repo
-```text
-git clone https://github.com/mileslathan/Hearthstone-Deck-Project.git
-```
-4. Go to the Hearthstone-Deck-Project directory and open this project in
+## How to View
+
+
+Head to [This Deployment](https://hearthstone-deck-project.herokuapp.com/index)
+
 
 ## APP Description
 ![DESC IMG](https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/t1/T186VQOQFRJN1622064439114.png)
@@ -58,7 +54,9 @@ For this project, I was using embedding
 ## Future Improvements
 
 -**Improving UI/UX Design.** This incorporates better deisgn for users adding cards, display of data and more user interactivity.
+
 -**Security Changes.** Invest in better technologies for both Authentication and Authorization.
+
 -**Added Functionality.** Adding a place for users to interact with each other through comments. Allow users to upvote their favorite decks. Create a rating algorithm to rate card collections and how they would fair being used.
 
 ## Things I Learned
