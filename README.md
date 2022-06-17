@@ -53,7 +53,7 @@ For this project, I was using embedding
 
 -**Improving UI/UX Design.** This incorporates better deisgn for users adding cards, display of data and more user interactivity.
 -**Security Changes.** Invest in better technologies for both Authentication and Authorization.
--
+-**Added Functionality.** Adding a place for users to interact with each other through comments. Allow users to upvote their favorite decks. Create a rating algorithm to rate card collections and how they would fair being used.
 
 ## Things I Learned
 - 
