@@ -48,10 +48,12 @@ On this site, users are seperated into three catagories: Admin, Registered User 
 
 ## Challenges
   
-#### Database and Browser timing issues
+#### Database and Browser Timing Issues
 Had a rough time with ensuring that the data being queried, was able to happen **before** the data is rendered to the page. While everything works as it should, I question the efficiency of the back-end being able to deliver to the front-end.
 
-#### 
+#### Data Embedding Issues
+For this project, I tried to embed arrays of objects inside one another. This was proven to be extremely difficult to query and locate data. I had to completely re-work my models from embedding to a reference model for the scope of my project.
+
 
 ## Future Improvements
 
