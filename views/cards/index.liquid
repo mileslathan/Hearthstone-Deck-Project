@@ -18,13 +18,13 @@
             <input type="radio" id="search-card-class" name="search" value="playerClass"><label for="search-card-class">By Class</label>
             <input type="radio" id="search-card-cost" name="search" value="cost"><label for="search-card-cost">By Cost</label>
         </form></div>
-        {% if username != "" and username != null %}
+        <!-- {% if username != "" and username != null %}
         <div><a href="/users/myCollections/">My Collections</a></div>
-        {% endif %}
+        {% endif %} -->
         <div id="card-container">
             {% for card in showCards limit:30 %}
             <a href="/index/{{ card._id }}"><img src="{{ card.img }}"></a>          
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
 {% endblock %}

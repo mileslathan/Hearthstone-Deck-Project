@@ -1,9 +1,9 @@
 {% layout "layout.liquid" %} {% block content %}
 <div>
-    <h1>THIS IS THE EDIT PAGE REDO ALL FIELDS</h1>
+    <h1>Edit {{ card.name }}</h1>
   <form action='/index/{{ card._id }}/edit?_method=PUT' method="POST">
     <fieldset>
-      <legend>Edit {{ card.name }}</legend>
+      <!-- <legend>Edit {{ card.name }}</legend> -->
       <label>Name: <input type="text" name="name" required /> </label>
       <label
         >Image: <input type="text" name="img" required />
