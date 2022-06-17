@@ -16,6 +16,10 @@ git clone https://github.com/mileslathan/Hearthstone-Deck-Project.git
 ## APP Description
 This App, is designed to serve as a repository of information based on Blizzard Entertainment's card game titled Hearthstone. Using the app, users can search for a multitude of different cards data. Users that have registered can save popular cards to their 'collections' and use these collections to theorycraft their own personal decks.
 
+
+## Inspiration
+Back in 2014, I remember playing Hearthstone a lot while finishing my college education. The release of the game is very nostalgic and doing this project reminded me how fun it was!
+
 Miles Lathan
 ## WIREFRAMES
 ![WIREFRAME IMG](/img/HSProjectWireFrame1.png)
