@@ -33,3 +33,10 @@ Back in 2014, I remember playing Hearthstone a lot while finishing my college ed
 ![ERD IMG](/img/HSProjectERD.png)
 
 ## Technologies Used
+
+## TOP 3
+*:
+  - Testing
+  - test2
+  - testing3
+*
