@@ -48,16 +48,22 @@ On this site, users are seperated into three catagories: Admin, Registered User 
 
 ## Challenges
   
-### Selecting the Proper Model
-For this project, I was using embedding
+#### Database and Browser timing issues
+Had a rough time with ensuring that the data being queried, was able to happen **before** the data is rendered to the page. While everything works as it should, I question the efficiency of the back-end being able to deliver to the front-end.
+
+#### 
 
 ## Future Improvements
 
 -**Improving UI/UX Design.** This incorporates better deisgn for users adding cards, display of data and more user interactivity.
 
--**Security Changes.** Invest in better technologies for both Authentication and Authorization.
+-**Security Changes.** Invest in better technologies for both Authentication and Authorization. Improving my own personal education on web securitiy.
 
 -**Added Functionality.** Adding a place for users to interact with each other through comments. Allow users to upvote their favorite decks. Create a rating algorithm to rate card collections and how they would fair being used.
 
 ## Things I Learned
-- 
+- Planning out the use of technologies that are appropriate for the scope of the project.
+- Introduction to website encrpytion and security.
+- Designing authorization models.
+- Carefully planning and constantly improving UX for users along with UX feedback.
+- Limitations of certain technologies and how to leverage them to your advantage.
