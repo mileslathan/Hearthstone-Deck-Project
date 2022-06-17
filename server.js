@@ -44,13 +44,10 @@ const indexRouter = require('./routes/index')
 /////////////////////////////////////////////
 // Routers
 /////////////////////////////////////////////
-
 app.use('/users', userRouter)
 app.use('/cards', cardRouter)
 app.use('/index', indexRouter)
 // app.use('/myCollections', collectionRouter)
-
-
 
 
 

@@ -7,7 +7,7 @@ Player Class: {{ showCard.playerClass }}<br>
 Card Type: {{ showCard.type }}<br>
 Card Text: {{ showCard.text }}<br>
 </div>
- {% if loggedIn and onUser.isAdmin %}
+ {% if onUser %}
 <div>          
     <form action="/users/{{ showCard._id }}/add" method="POST">
     <input type="submit" value="Add To Collection:"/>
@@ -21,6 +21,17 @@ Card Text: {{ showCard.text }}<br>
 <div>
     <a href="/index/{{ showCard._id }}/edit"><button>Edit</button></a>
     <a href="/index/{{ showCard._id }}/delete"><button>Delete</button></a>
+</div>
+ {% elsif loggedIn %}
+ <div>
+    <form action="/users/{{ showCard._id }}/add" method="POST">
+        <input type="submit" value="Add To Collection:"/>
+        <select id="deck" name="collection">
+        {% for collects in usersCollectionsSpecified %}
+        <option value="{{ collects._id }}">{{ collects.name }}</option>
+        {% endfor %}
+        </select>
+    </form>
 </div>
 {% endif %}
 <div class="comments">

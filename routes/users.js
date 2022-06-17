@@ -104,7 +104,7 @@ router.post("/login", async (req, res) => {
     });
   });
 
-  router.get('/mycollections/:id', async (req, res) => {
+  router.get('/myCollections/:id', async (req, res) => {
     // res.render('users/collection.liquid')
     const username = req.session.username
     const collectsCards = await CardCollection.findById(req.params.id).populate('cards')

@@ -14,7 +14,7 @@
             
           </div>
         {% endif %}
-        <div><form action="/index/query" method="POST">
+        <div id="search-params"><form action="/index/query" method="POST">
             Search Cards: <input type="text" name="text"><input type="submit" /><br>
             <input type="radio" id="search-card-name" name="search" value="name"><label for="search-card-name">By Name</label>
             <input type="radio" id="search-card-class" name="search" value="playerClass"><label for="search-card-class">By Class</label>
@@ -23,10 +23,9 @@
         {% if username != "" and username != null %}
         <div><a href="/users/myCollections/">My Collections</a></div>
         {% endif %}
-        {% for card in showCards limit:15 %}
         <div id="card-container">
-            <a href="/index/{{ card._id }}">{{ card.name }}</a>
-            <img src="{{ card.img }}">           
+            {% for card in showCards limit:15 %}
+            <a href="/index/{{ card._id }}"><img src="{{ card.img }}"></a>          
         </div>
         {% endfor %}
     </div>

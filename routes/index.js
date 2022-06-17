@@ -93,7 +93,8 @@ router.get('/:id', async (req, res) => {
     //     const cardRender = Card.findById(id)''r, usersCollectionsSpecified })
      //  const userCollectionName = usersCollectionsSpecified
      // i will query the User model by passing in 'username' to find the exact username. Once you have correct object I can use the isAdmin property and pass it through the .then.
-        const onUser = User.findOne({username: username})
+        const onUser = userCollections.isAdmin
+        console.log(onUser)
      Card.findById(id)
      .then((showCard) => {
          res.render('cards/show.liquid', { showCard, usersCollectionsSpecified, loggedIn, onUser })
