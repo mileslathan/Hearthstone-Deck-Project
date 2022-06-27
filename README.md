@@ -9,6 +9,11 @@ Miles Lathan
 
 ## How to View
 
+** PLEASE NOTE! ! ! **
+Website permissions runs through admin. To login as admin in order to delete or edit cards:
+username: admin
+password: fencing
+
 
 Head to [This Deployment](https://hearthstone-deck-project.herokuapp.com/index)
 
